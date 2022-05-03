@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Categories({ items }) {
+export default function Categories({ items, onClickItem }) {
   const [activeItem, setActiveItem] = React.useState(null);
 
   const onSelectItem = (index) => {

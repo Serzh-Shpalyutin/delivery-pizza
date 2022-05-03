@@ -8,6 +8,12 @@
 
     svg {
       margin-right: 8px;
+      transform: rotate(180deg);
+      transition: transform .2s linear;
+
+      &.rotated {
+        transform: rotate(0deg);
+      }
     }
 
     b {
@@ -53,10 +59,6 @@
 }
 
 @media (max-width: 1300px) {
-  .sort__label span {
-    display: none;
-  }
-
   .content__top {
     flex-wrap: wrap;
   }
