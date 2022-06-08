@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function SortPopup({ items, onClickItem }) {
+const SortPopup = React.memo(function SortPopup({ items }) {
 
   // открытие/закрытие попапа сортировки  
   const [visiblePopup, setVisiblePopup] = React.useState(false);
@@ -22,7 +22,6 @@ export default function SortPopup({ items, onClickItem }) {
     document.body.addEventListener("click", handleOutsideClick);
   }, []);
 
-
   // выбор пункта сортировки
   const [activeItem, setActiveItem] = React.useState(0);
   const onSelectItem = (index) => {
@@ -30,7 +29,7 @@ export default function SortPopup({ items, onClickItem }) {
     setVisiblePopup(false);
   };
 
-  const activeLabel = items[activeItem];
+  const activeLabel = items[activeItem].name;
 
   return (
     <div ref={sortRef} className="sort">
@@ -55,13 +54,13 @@ export default function SortPopup({ items, onClickItem }) {
         <div className="sort__popup">
           <ul>
             {items &&
-              items.map((name, index) => (
+              items.map((obj, index) => (
                 <li
                   className={activeItem === index ? "active" : ""}
                   onClick={() => onSelectItem(index)}
-                  key={`${name}_${index}`}
+                  key={`${obj.type}_${index}`}
                 >
-                  {name}
+                  {obj.name}
                 </li>
               ))}
           </ul>
@@ -69,4 +68,6 @@ export default function SortPopup({ items, onClickItem }) {
       )}
     </div>
   );
-}
+});
+
+export default SortPopup;
