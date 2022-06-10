@@ -1,6 +1,5 @@
 import React from "react";
-import PropTypes from 'prop-types';
-
+import PropTypes from "prop-types";
 import classNames from "classnames";
 
 export default function PizzaBlock({ name, price, imageUrl, types, sizes }) {
@@ -40,7 +39,7 @@ export default function PizzaBlock({ name, price, imageUrl, types, sizes }) {
           })}
         </ul>
         <ul>
-        {availableSizes.map((size, index) => {
+          {availableSizes.map((size, index) => {
             return (
               <li
                 key={size}
@@ -87,7 +86,7 @@ PizzaBlock.propTypes = {
   sizes: PropTypes.arrayOf(PropTypes.number),
   price: PropTypes.number.isRequired,
   category: PropTypes.number.isRequired,
-  rating: PropTypes.number.isRequired
+  rating: PropTypes.number.isRequired,
 };
 
 PizzaBlock.defaultProps = {
