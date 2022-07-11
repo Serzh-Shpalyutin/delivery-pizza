@@ -1,4 +1,4 @@
-export const addPizzaToCart = (pizzaObject) => ({
+export const addPizzaToCart = (pizzaObj) => ({
     type: 'ADD_PIZZA_CART',
-    payload: pizzaObject
+    payload: pizzaObj,
 });
